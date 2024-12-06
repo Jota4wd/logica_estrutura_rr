@@ -1,0 +1,13 @@
+INÍCIO
+    SE o carro estiver em um local seguro E plano ENTAO
+        LIGAR o pisca-alerta
+        REMOVER a roda de socorro do porta-malas
+        USAR o macaco para levantar o carro
+        REMOVER os parafusos da roda danificada
+        RETIRAR a roda danificada
+        COLOCAR a roda de socorro no lugar
+        APERTAR os parafusos da roda de socorro
+        BAIXAR o carro com o macaco
+        GUARDAR a roda danificada e o macaco no porta-malas
+    FIM_SE
+FIM

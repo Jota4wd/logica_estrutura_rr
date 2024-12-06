@@ -1,0 +1,8 @@
+INÍCIO
+    DESLIGAR a energia do circuito
+    REMOVER a lâmpada queimada
+    PEGAR a lâmpada nova
+    COLOCAR a lâmpada nova no soquete
+    LIGAR a energia do circuito
+    TESTAR se a lâmpada funciona
+FIM

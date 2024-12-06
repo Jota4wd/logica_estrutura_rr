@@ -1,0 +1,31 @@
+Como usar:
+
+Para inserir um registro:
+- Escolha opção 1
+- Digite o nome da tabela (ex: "usuarios")
+- Digite os dados no formato JSON, por exemplo:
+  {"nome": "João", "idade": 25}
+
+Exemplos de registros válidos: json
+
+{"nome": "Maria", "idade": 30, "cidade": "São Paulo"}
+{"produto": "Laptop", "preco": 3500.00, "quantidade": 5}
+{"aluno": "Pedro", "notas": [8.5, 9.0, 7.5]}
+
+
+Para consultar:
+- Escolha opção 2
+- Digite o nome da tabela que quer consultar
+
+
+Salvamento automático após cada inserção
+Carregamento automático ao iniciar
+Melhor formatação da exibição dos dados
+Adição de timestamp em cada registro
+Exemplos de uso incluídos
+Tratamento de erros
+Interface mais amigável
+Formatação JSON mais legível
+Limpeza de tela compatível com Windows e Linux
+O banco de dados é salvo automaticamente no arquivo 'db_data.json' no mesmo
+diretório do programa. Você não precisa se preocupar em salvar manualmente.

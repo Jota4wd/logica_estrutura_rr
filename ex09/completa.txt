@@ -1,0 +1,158 @@
+Importação
+
+
+from collections import deque
+
+Esta importação é necessária para implementar a travessia por nível (breadth-first)
+deque é uma estrutura de dados de fila dupla otimizada para operações de inserção e remoção em ambas as extremidades
+
+Modificações na classe Noh
+
+
+def __init__(self, dado=0, esquerdo=None, direito=None, altura=1):
+    self.dado = dado
+    self.esquerdo = esquerdo
+    self.direito = direito
+    self.altura = altura  # Novo atributo para balanceamento AVL
+
+
+Adicionado o atributo altura para suportar o balanceamento AVL
+Novas funções para balanceamento AVL
+
+
+def getAltura(self, raiz):
+    if raiz is None:
+        return 0
+    return raiz.altura
+
+def getFatorBalanceamento(self, raiz):
+    if raiz is None:
+        return 0
+    return self.getAltura(raiz.esquerdo) - self.getAltura(raiz.direito)
+
+def atualizaAltura(self, raiz):
+    if raiz is None:
+        return
+    raiz.altura = max(self.getAltura(raiz.esquerdo), 
+                     self.getAltura(raiz.direito)) + 1
+
+
+getAltura: retorna a altura de um nó
+getFatorBalanceamento: calcula a diferença de altura entre subárvores esquerda e direita
+atualizaAltura: atualiza a altura de um nó baseado nas alturas de seus filhos
+
+
+Funções de rotação para balanceamento
+
+
+def rotacaoDireita(self, y):
+    # ...
+
+def rotacaoEsquerda(self, x):
+    # ...
+
+
+Implementam as rotações necessárias para manter a árvore balanceada
+São chamadas automaticamente durante inserções e remoções quando necessário
+Modificações nas funções de inserção e remoção
+Agora incluem lógica de balanceamento AVL
+Verificam o fator de balanceamento após cada operação
+Realizam rotações quando necessário para manter a árvore balanceada
+
+
+Nova função de busca do maior valor
+
+
+def maiorValor(self, raiz):
+    if raiz is None:
+        return None
+    if raiz.direito is None:
+        return raiz
+    return self.maiorValor(raiz.direito)
+
+
+Complementa a função menorValor existente
+Encontra o nó com o maior valor na árvore
+Verificação de BST válida
+
+
+def ehBST(self, raiz, min_valor=float('-inf'), max_valor=float('inf')):
+    # ...
+
+
+Verifica se a árvore segue todas as propriedades de uma BST
+Garante que todos os nós à esquerda são menores e à direita são maiores
+
+
+Novos tipos de travessia
+
+
+def travessiaPreOrdem(self, raiz):
+    # Raiz -> Esquerda -> Direita
+
+def travessiaEmOrdem(self, raiz):
+    # Esquerda -> Raiz -> Direita
+
+def travessiaPosOrdem(self, raiz):
+    # Esquerda -> Direita -> Raiz
+
+def travessiaPorNivel(self, raiz):
+    # Travessia em largura (nível por nível)
+
+
+Diferentes formas de percorrer a árvore
+Cada uma útil para diferentes tipos de processamento
+A travessia por nível usa uma fila para visitar os nós por camadas
+
+
+Nova função de impressão visual
+
+
+def imprimirArvoreVisual(self, raiz, nivel=0, prefixo="Raiz: "):
+    # ...
+
+
+Apresenta a árvore de forma hierárquica e visual
+Facilita a visualização da estrutura da árvore
+
+
+Exemplo de saída:
+
+Raiz: 10
+    E-- 5
+        E-- 3
+        D-- 7
+    D-- 15
+        E-- 12
+        D-- 17
+
+
+Melhorias na função de pesquisa
+
+
+def pesquisa(self, raiz, valor):
+    """Retorna o nó se encontrado, None caso contrário"""
+
+
+
+Agora retorna o nó completo ao invés de apenas 0 ou 1
+Permite acesso a todas as informações do nó encontrado
+
+
+Melhorias na função imprimeNohs
+
+
+def imprimeNohs(self, raiz):
+    """Versão melhorada e mais segura"""
+
+
+Tratamento mais seguro para nós nulos
+Evita erros ao tentar acessar atributos de nós inexistentes
+
+
+Todas essas implementações tornam a árvore:
+
+Mais eficiente (mantém-se balanceada)
+Mais segura (melhor tratamento de erros)
+Mais versátil (mais opções de travessia)
+Mais fácil de visualizar e debugar

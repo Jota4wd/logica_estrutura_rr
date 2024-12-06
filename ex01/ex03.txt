@@ -1,0 +1,8 @@
+INÍCIO
+    PEGAR a escova de dentes
+    APLICAR pasta de dente na escova
+    ESCOVAR os dentes em movimentos circulares por 2 minutos
+    ENXAGUAR a boca com água
+    LAVAR a escova de dentes
+    GUARDAR a escova de dentes
+FIM

@@ -1,0 +1,18 @@
+INÍCIO
+    DIRIGIR-SE ao caixa eletrônico
+    INSERIR o cartão no caixa eletrônico
+    DIGITAR a senha
+    SE a senha estiver correta ENTAO
+        ESCOLHER a opção "Retirar Dinheiro"
+        DIGITAR o valor que deseja retirar
+        SE o saldo for suficiente ENTAO
+            RETIRAR o dinheiro
+            RETIRAR o cartão
+            SAIR do caixa eletrônico
+        SENÃO
+            EXIBIR mensagem "Saldo insuficiente"
+        FIM_SE
+    SENÃO
+        EXIBIR mensagem "Senha incorreta"
+    FIM_SE
+FIM

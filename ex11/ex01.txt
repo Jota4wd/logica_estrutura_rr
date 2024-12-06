@@ -1,0 +1,34 @@
+Exemplo de uso:
+
+1. Insira alguns números:
+   - Digite 1,
+   - Digite 50,
+   - Digite 30,
+   - Digite 70,
+   - Digite 20,
+
+2. Veja a árvore:
+   - Digite 3,
+   - Verá os números ordenados
+
+3. Salve a árvore:
+   - Digite 4,
+
+4. Para testar:
+   - Saia do programa (0)
+   - Execute novamente
+   - Carregue a árvore (5)
+   - Veja se os números estão lá (3)
+
+
+Tratamento de erros
+Visualização melhor da árvore
+Busca de valores
+Estatísticas básicas
+Interface mais amigável
+Salvamento e carregamento mais robustos
+Limpeza de tela compatível com Windows e Linux
+Tipagem de dados
+Melhor organização do código
+A árvore mantém os números organizados automaticamente, facilitando buscas e
+mantendo a ordem dos dados.

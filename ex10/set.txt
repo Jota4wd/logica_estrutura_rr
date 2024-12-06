@@ -1,0 +1,86 @@
+Os sets (ou conjuntos) em Python são uma estrutura de dados que permite armazenar coleções de elementos únicos e não ordenados. Eles suportam várias operações matemáticas de conjuntos, como união, interseção, diferença e diferença simétrica. Vamos explorar essas operações e a sintaxe associada.
+
+Operações Comuns com Sets
+
+União (|):
+A união de dois conjuntos retorna um novo conjunto que contém todos os elementos de ambos os conjuntos.
+
+Sintaxe: a | b ou a.union(b)
+
+Exemplo:
+a = {1, 2, 3}
+b = {3, 4, 5}
+union = a | b  # {1, 2, 3, 4, 5}
+
+
+Interseção (&):
+A interseção retorna um novo conjunto que contém apenas os elementos que estão presentes em ambos os conjuntos.
+
+Sintaxe: a & b ou a.intersection(b)
+
+Exemplo:
+a = {1, 2, 3}
+b = {3, 4, 5}
+intersection = a & b  # {3}
+
+
+Diferença (-):
+A diferença entre dois conjuntos retorna um novo conjunto que contém os elementos que estão no primeiro conjunto, mas não no segundo.
+
+Sintaxe: a - b ou a.difference(b)
+
+Exemplo:
+a = {1, 2, 3}
+b = {3, 4, 5}
+difference = a - b  # {1, 2}
+
+
+Diferença Simétrica (^):
+A diferença simétrica retorna um novo conjunto que contém os elementos que estão em um dos conjuntos, mas não em ambos.
+
+Sintaxe: a ^ b ou a.symmetric_difference(b)
+
+Exemplo:
+a = {1, 2, 3}
+b = {3, 4, 5}
+symmetric_difference = a ^ b  # {1, 2, 4, 5}
+
+
+Métodos de Conjuntos
+Além das operações mencionadas, os sets em Python também têm métodos que podem ser usados para realizar as mesmas operações:
+
+union(): Retorna a união de dois ou mais conjuntos.
+
+intersection(): Retorna a interseção de dois ou mais conjuntos.
+
+difference(): Retorna a diferença entre dois conjuntos.
+
+symmetric_difference(): Retorna a diferença simétrica entre dois conjuntos.
+
+
+Exemplo Completo
+# Definindo dois conjuntos
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+# União
+print("União:", a | b)  # Saída: {1, 2, 3, 4, 5}
+
+# Interseção
+print("Interseção:", a & b)  # Saída: {3}
+
+# Diferença
+print("Diferença (a - b):", a - b)  # Saída: {1, 2}
+
+# Diferença Simétrica
+print("Diferença Simétrica:", a ^ b)  # Saída: {1, 2, 4, 5}
+
+# Usando métodos
+print("União (método):", a.union(b))  # Saída: {1, 2, 3, 4, 5}
+print("Interseção (método):", a.intersection(b))  # Saída: {3}
+print("Diferença (método):", a.difference(b))  # Saída: {1, 2}
+print("Diferença Simétrica (método):", a.symmetric_difference(b))  # Saída: {1, 2, 4, 5}
+
+
+Considerações Finais
+Os sets são muito úteis para operações que envolvem a comparação de coleções de dados, especialmente quando você precisa garantir que não haja duplicatas. Eles são eficientes para essas operações devido à sua implementação interna, que utiliza tabelas hash.

@@ -1,0 +1,12 @@
+INÍCIO
+    OBSERVAR a posição do ponteiro das horas
+    OBSERVAR a posição do ponteiro dos minutos
+    SE o ponteiro dos minutos estiver entre 0 e 59 ENTAO
+        CALCULAR a hora atual
+        SE o ponteiro dos minutos estiver entre 1 e 29 ENTAO
+            A HORA É: (posição do ponteiro das horas) horas
+        SENÃO
+            A HORA É: (posição do ponteiro das horas + 1) horas
+        FIM_SE
+    FIM_SE
+FIM

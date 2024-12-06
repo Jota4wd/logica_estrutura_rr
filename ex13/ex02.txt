@@ -1,0 +1,20 @@
+Aplicações em armazenamento externo:
+
+"""
+Uso em armazenamento em disco:
+
+1. Minimização de acessos:
+- Cada nó corresponde a um bloco de disco
+- Altura reduzida minimiza acessos ao disco
+- Ordem da árvore relacionada ao tamanho do bloco
+
+2. Implementação em sistemas de arquivos:
+- NTFS usa B-Trees
+- Sistemas de arquivos Unix modernos usam variantes
+- Bancos de dados usam B-Trees para índices
+
+3. Vantagens:
+- Busca, inserção e remoção em O(log n)
+- Bom uso de cache e memória
+- Mantém-se balanceada automaticamente
+"""

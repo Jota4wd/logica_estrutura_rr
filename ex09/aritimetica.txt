@@ -1,0 +1,246 @@
+Explicação:
+
+ArvoreExpressao:
+Cria uma árvore para expressões aritméticas
+Usa notação pós-fixa (polonesa reversa) para construir a árvore
+Operadores são nós internos e operandos são folhas
+Pode imprimir a expressão em ordem (infixa)
+Codificação de Huffman:
+Cria uma árvore baseada na frequência dos caracteres
+Caracteres mais frequentes ficam mais próximos da raiz
+Gera códigos binários (0s e 1s) para cada caractere
+Permite compressão do texto original
+Pode codificar e decodificar mensagens
+A principal diferença entre as duas implementações:
+
+ArvoreExpressao: foca na estrutura da expressão matemática
+Huffman: foca na frequência dos caracteres para compressão
+
+Para executar:
+
+Salve os três arquivos no mesmo diretório
+Execute python main.py
+
+A árvore de expressão é útil para:
+Avaliar expressões matemáticas
+Converter entre notações (infixa, pós-fixa, pré-fixa)
+Representar expressões de forma hierárquica
+
+
+A árvore de Huffman é útil para:
+Compressão de dados
+Codificação de caracteres
+Estudo de algoritmos de compressão
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+arvore_expressao.py - PARTE 1:
+class Noh:
+    def __init__(self, dado):
+        # Cada nó tem três partes:
+        self.esquerdo = None  # Referência para filho esquerdo
+        self.direito = None   # Referência para filho direito
+        self.dado = dado      # O valor armazenado (operador ou número/variável)
+        
+    def __str__(self):
+        # Quando convertemos o nó para string, mostra o dado entre parênteses
+        return f"({self.dado})"
+
+class ArvoreExpressao:
+    def __init__(self):
+        # Quando criamos uma árvore nova, ela começa vazia
+        self.raiz = None
+        
+    def eh_operador(self, caractere):
+        # Verifica se um caractere é um operador matemático
+        # Retorna True para +, -, *, /, ^ e False para outros caracteres
+        return caractere in ['+', '-', '*', '/', '^']
+
+arvore_expressao.py - PARTE 2:
+def criar_arvore_expressao(self, expressao):
+        # expressao: string em notação pós-fixa (exemplo: "ab+c*")
+        pilha = []  # Pilha para construir a árvore
+        
+        # Para cada caractere na expressão
+        for char in expressao:
+            if not self.eh_operador(char):
+                # Se for número ou variável, cria nó e coloca na pilha
+                pilha.append(Noh(char))
+            else:
+                # Se for operador:
+                noh = Noh(char)  # Cria nó do operador
+                
+                # Pega os dois últimos números/variáveis da pilha
+                # O último vira filho direito
+                noh.direito = pilha.pop()
+                # O penúltimo vira filho esquerdo
+                noh.esquerdo = pilha.pop()
+                
+                # Coloca o novo nó (subárvore) na pilha
+                pilha.append(noh)
+                
+        # O último nó na pilha é a raiz da árvore completa
+        return pilha[0]
+
+arvore_expressao.py - PARTE 3:def imprimir_em_ordem(self, raiz):
+        # Imprime a expressão com parênteses
+        # Exemplo: para a+b*c, imprime (a+(b*c))
+        if raiz:  # Se o nó não é nulo
+            if self.eh_operador(raiz.dado):
+                print("(", end="")  # Abre parênteses para operadores
+                
+            # Visita filho esquerdo
+            self.imprimir_em_ordem(raiz.esquerdo)
+            
+            # Imprime o valor do nó atual
+            print(raiz.dado, end="")
+            
+            # Visita filho direito
+            self.imprimir_em_ordem(raiz.direito)
+            
+            if self.eh_operador(raiz.dado):
+                print(")", end="")  # Fecha parênteses para operadores
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+huffman.py - PARTE 1:
+from heapq import heappush, heappop, heapify  # Importa funções para fila de prioridade
+
+class NohHuffman:
+    def __init__(self, char, freq):
+        self.char = char      # Caractere armazenado
+        self.freq = freq      # Frequência do caractere no texto
+        self.esquerdo = None  # Filho esquerdo
+        self.direito = None   # Filho direito
+        
+    def __lt__(self, outro):
+        # Define como comparar dois nós
+        # Usado pela fila de prioridade para ordenar por frequência
+        return self.freq < outro.freq
+
+class Huffman:
+    def __init__(self):
+        self.raiz = None     # Raiz da árvore
+        self.codigos = {}    # Dicionário que guardará os códigos binários
+
+
+huffman.py - PARTE 2:
+def calcular_frequencia(self, texto):
+        # Conta quantas vezes cada caractere aparece no texto
+        frequencias = {}
+        for char in texto:
+            # Se caractere já existe, soma 1; se não, começa com 1
+            frequencias[char] = frequencias.get(char, 0) + 1
+        return frequencias
+        
+    def criar_arvore(self, texto):
+        # Primeiro, calcula frequência de cada caractere
+        frequencias = self.calcular_frequencia(texto)
+        
+        # Cria fila de prioridade (heap)
+        heap = []
+        # Para cada caractere e sua frequência
+        for char, freq in frequencias.items():
+            # Cria nó e adiciona à fila
+            heappush(heap, NohHuffman(char, freq))
+
+huffman.py - PARTE 3:
+# Enquanto houver mais de um nó na fila
+        while len(heap) > 1:
+            # Remove os dois nós de menor frequência
+            esq = heappop(heap)
+            dir = heappop(heap)
+            
+            # Cria novo nó interno
+            # freq = soma das frequências dos filhos
+            # char = None (nós internos não têm caracteres)
+            interno = NohHuffman(None, esq.freq + dir.freq)
+            interno.esquerdo = esq
+            interno.direito = dir
+            
+            # Adiciona novo nó à fila
+            heappush(heap, interno)
+            
+        # O último nó é a raiz da árvore
+        self.raiz = heap[0]
+        
+    def gerar_codigos(self, raiz=None, codigo=""):
+        # Gera código binário para cada caractere
+        # 0 = esquerda, 1 = direita
+        
+        if raiz is None:
+            raiz = self.raiz
+            
+        # Se é um nó folha (tem caractere)
+        if raiz.char is not None:
+            # Guarda o código binário deste caractere
+            self.codigos[raiz.char] = codigo
+            return
+            
+        # Visita filho esquerdo (adiciona 0 ao código)
+        self.gerar_codigos(raiz.esquerdo, codigo + "0")
+        # Visita filho direito (adiciona 1 ao código)
+        self.gerar_codigos(raiz.direito, codigo + "1")
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+Exemplo de uso no main.py:
+# Importa as classes
+from arvore_expressao import ArvoreExpressao
+from huffman import Huffman
+
+# === Exemplo de Árvore de Expressão ===
+# Cria árvore
+arvore = ArvoreExpressao()
+
+# Expressão: (a+b)*(c-d)
+# Em notação pós-fixa: ab+cd-*
+expressao = "ab+cd-*"
+
+# Cria árvore a partir da expressão
+raiz = arvore.criar_arvore_expressao(expressao)
+
+# Imprime expressão com parênteses
+print("Expressão em ordem: ")
+arvore.imprimir_em_ordem(raiz)
+print("\n")
+
+# === Exemplo de Huffman ===
+# Texto para codificar
+texto = "essa mensagem sera codificada"
+
+# Cria codificador Huffman
+huffman = Huffman()
+
+# Cria árvore e gera códigos
+huffman.criar_arvore(texto)
+huffman.gerar_codigos()
+
+# Mostra código binário de cada caractere
+print("Códigos Huffman:")
+for char, codigo in huffman.codigos.items():
+    print(f"'{char}': {codigo}")
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+A diferença principal entre as duas árvores:
+
+Árvore de Expressão:
+Usada para representar expressões matemáticas
+Operadores são nós internos
+Números/variáveis são folhas
+Útil para avaliar expressões
+
+Árvore de Huffman:
+Usada para compressão de dados
+Caracteres mais frequentes ficam mais próximos da raiz
+Gera códigos binários menores para caracteres mais frequentes
+Útil para compressão de texto

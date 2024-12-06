@@ -1,0 +1,25 @@
+<!-- ex01/templates/ex01/lista_pesquisas.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pesquisas</title>
+</head>
+<body>
+    <h1>Pesquisas de Opinião</h1>
+    <ul>
+        {% for pesquisa in pesquisas %}
+            <li>
+                <strong>{{ pesquisa.questao }}</strong> - Publicada em: {{ pesquisa.data_publicacao }}
+                <ul>
+                    {% for escolha in pesquisa.escolhas_set.all %}
+                        <li>{{ escolha.escolha }} - Votos: {{ escolha.votos }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

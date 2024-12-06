@@ -1,0 +1,32 @@
+desafio criado com ajuda do claudet
+
+Para testar este sistema:
+
+Primeiro, execute o servidor (servidor.py)
+Em seguida, execute várias instâncias do cliente (cliente.py) em terminais diferentes
+Este exemplo inclui:
+
+Servidor multithreaded que aceita múltiplas conexões
+Interface gráfica simples para o cliente usando tkinter
+Sistema de broadcast de mensagens
+Tratamento básico de erros e desconexões
+Comunicação assíncrona (envio/recebimento simultâneo de mensagens)
+Características principais:
+
+O servidor cria uma nova thread para cada cliente conectado
+Cada cliente tem duas threads:
+Thread principal para a interface gráfica
+Thread secundária para receber mensagens
+As mensagens são transmitidas para todos os outros clientes conectados
+O sistema inclui tratamento básico de erros e desconexões
+Para executar em um ambiente local:
+
+Salve os dois arquivos separadamente
+Execute primeiro o servidor: python servidor.py
+Execute um ou mais clientes: python cliente.py
+Este é um exemplo simplificado, mas demonstra os conceitos básicos de:
+
+Programação com sockets
+Threads
+Comunicação cliente-servidor
+Interface gráfica básica

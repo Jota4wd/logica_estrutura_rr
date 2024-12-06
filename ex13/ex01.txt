@@ -1,0 +1,19 @@
+Relação com outras árvores e B-Trees:
+
+"""
+Árvores 2-3-4 são um caso especial de B-Trees, especificamente uma B-Tree de ordem 4.
+Comparação com outras estruturas:
+
+1. B-Trees:
+- Árvores 2-3-4 são B-Trees de ordem 4
+- B-Trees são mais genéricas, permitindo qualquer ordem
+- Usadas principalmente em sistemas de arquivos e bancos de dados
+
+2. Árvores Red-Black:
+- Toda árvore 2-3-4 pode ser transformada em uma árvore Red-Black
+- Árvores Red-Black são uma implementação binária das árvores 2-3-4
+
+3. Árvores AVL:
+- Mais rígidas no balanceamento
+- Menos eficientes para inserções frequentes
+"""

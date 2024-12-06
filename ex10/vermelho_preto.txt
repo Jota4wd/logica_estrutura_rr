@@ -1,0 +1,7 @@
+Propriedades da Árvore Vermelho-Preto
+Uma árvore vermelho-preto deve seguir estas propriedades:
+Cada nó é vermelho ou preto.
+A raiz é sempre preta.
+Todas as folhas (nós nulos) são pretas.
+Se um nó é vermelho, ambos os seus filhos devem ser pretos (não pode haver dois nós vermelhos consecutivos).
+Para cada nó, todos os caminhos da raiz até as folhas devem ter o mesmo número de nós pretos.

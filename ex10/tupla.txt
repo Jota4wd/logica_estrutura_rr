@@ -1,0 +1,72 @@
+Características das Tuplas
+Imutabilidade: Uma vez que uma tupla é criada, seus elementos não podem ser alterados,
+adicionados ou removidos. Isso significa que você não pode modificar uma tupla após sua criação.
+Indexação: Assim como as listas, as tuplas são indexadas, o que significa que você pode acessar
+seus elementos usando índices, começando do zero.
+Permitem elementos duplicados: Tuplas podem conter elementos duplicados, assim como listas.
+Podem conter diferentes tipos de dados: Uma tupla pode armazenar elementos de diferentes tipos,
+como inteiros, strings, listas, etc.
+Sintaxe para Criar Tuplas
+A sintaxe para criar uma tupla é simples. Você pode usar parênteses () para definir os elementos da tupla, separados por vírgulas.
+
+Exemplo:
+# Criando uma tupla
+minha_tupla = (1, 2, 3, 'Python', True)
+print(minha_tupla)  # Saída: (1, 2, 3, 'Python', True)
+
+
+Acessando Elementos
+Você pode acessar os elementos de uma tupla usando índices:
+# Acessando elementos
+print(minha_tupla[0])  # Saída: 1
+print(minha_tupla[3])  # Saída: 'Python'
+
+
+Operações Comuns com Tuplas
+Concatenação: Você pode concatenar tuplas usando o operador +.
+
+Exemplo:
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5)
+tupla_concatenada = tupla1 + tupla2
+print(tupla_concatenada)  # Saída: (1, 2, 3, 4, 5)
+
+
+Repetição: Você pode repetir os elementos de uma tupla usando o operador *.
+Exemplo:
+tupla_repetida = (1, 2) * 3
+print(tupla_repetida)  # Saída: (1, 2, 1, 2, 1, 2)
+
+
+Verificação de Membro: Você pode verificar se um elemento está presente na tupla
+usando o operador in.
+
+Exemplo:
+print(2 in minha_tupla)  # Saída: True
+print('Java' in minha_tupla)  # Saída: False
+
+
+Contagem e Índice: Você pode usar os métodos count() e index() para contar
+a ocorrência de um elemento ou encontrar o índice de um elemento.
+
+Exemplo:
+tupla_com_duplicados = (1, 2, 2, 3)
+print(tupla_com_duplicados.count(2))  # Saída: 2
+print(tupla_com_duplicados.index(3))  # Saída: 3
+
+
+Desempacotamento de Tuplas
+Você também pode "desempacotar" uma tupla, atribuindo seus elementos a variáveis separadas.
+
+Exemplo:
+tupla = (1, 2, 3)
+a, b, c = tupla
+print(a)  # Saída: 1
+print(b)  # Saída: 2
+print(c)  # Saída: 3
+
+
+Considerações Finais
+As tuplas são úteis quando você deseja garantir que os dados não sejam alterados
+acidentalmente. Elas são frequentemente usadas para representar dados que devem
+permanecer constantes, como coordenadas (x, y) ou registros de dados.
